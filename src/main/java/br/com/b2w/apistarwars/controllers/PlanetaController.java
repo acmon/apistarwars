@@ -2,7 +2,6 @@ package br.com.b2w.apistarwars.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -34,8 +33,21 @@ public class PlanetaController {
 	}
 	
 	@GetMapping(path = "/{id}")
-	public ResponseEntity<Optional<Planeta>> buscarPorId(@PathVariable(name = "id") String id) {
-		return ResponseEntity.ok(this.planetaService.buscarPorId(id));
+	public ResponseEntity<Response<Planeta>> buscarPorId(@PathVariable(name = "id") String id) {
+		
+		Planeta planeta = this.planetaService.buscarPorId(id)
+							.orElse(null);
+		
+		if (planeta == null) {
+			return ResponseEntity.notFound().build();
+		}
+		
+		return ResponseEntity.ok(new Response<Planeta>(planeta));
+	}
+	
+	@GetMapping(path = "/nome/{nome}")
+	public ResponseEntity<List<Planeta>> buscarPorNome(@PathVariable(name = "nome") String nome) {
+		return ResponseEntity.ok(this.planetaService.buscarPorNome(nome));
 	}
 	
 	@PostMapping
