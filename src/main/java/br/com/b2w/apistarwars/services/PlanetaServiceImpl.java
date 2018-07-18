@@ -5,10 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-
-import com.mongodb.BasicDBObject;
 
 import br.com.b2w.apistarwars.documents.Planeta;
 import br.com.b2w.apistarwars.repositories.PlanetaRepository;
