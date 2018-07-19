@@ -13,10 +13,6 @@ public class Planeta {
 	private String nome;
 	private String clima;
 	private String terreno;
-	
-	public Planeta() {
-		// TODO Auto-generated constructor stub
-	}
 
 	public String getId() {
 		return id;
@@ -32,7 +28,7 @@ public class Planeta {
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome;
+		this.nome = nome.toLowerCase();
 	}
 	
 	@NotEmpty(message = "O clima não foi informado")
@@ -41,7 +37,7 @@ public class Planeta {
 	}
 
 	public void setClima(String clima) {
-		this.clima = clima;
+		this.clima = clima.toLowerCase();
 	}
 	
 	@NotEmpty(message = "O terreno não foi informado")
@@ -50,7 +46,7 @@ public class Planeta {
 	}
 
 	public void setTerreno(String terreno) {
-		this.terreno = terreno;
+		this.terreno = terreno.toLowerCase();
 	}
 	
 }
